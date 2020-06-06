@@ -12,7 +12,7 @@ export function filter_providers(result) {
 export function fetch_providers(result) {
     return function (dispatch) {
         dispatch(fetch_providers_begin(result));
-        axios.get(FETCH_PROVIDERS_URL, {
+        axios.get(FETCH_PROVIDER_URL, {
             method: 'GET',
             mode: 'cors', // no-cors, *cors, same-origin
             cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached

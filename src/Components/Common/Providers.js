@@ -21,13 +21,12 @@ function Providers(props) {
     const classes = useStyles();
     useEffect(() => {
         props.actions.fetch_providers();
-
     }, [props.actions]);
 
     return <>
         <div className={classes.root}>
             <List size="large" variant="text" color="primary" aria-label="text primary button group">
-                {props.provider && props.provider.providers.map(s => <Provider key={s.id} service={s}></Provider>)}
+                {props.provider && props.provider.providersForSelectedService.map(p => <Provider key={p.id} provider={p}></Provider>)}
             </List>
         </div>
     </>;
@@ -42,7 +41,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         actions: {
-            fetch_providers: bindActionCreators(actions.fetch_providers, dispatch)
+            fetch_providers: bindActionCreators(actions.fetch_providers, dispatch),
+            filter_providers: bindActionCreators(actions.filter_providers, dispatch)
         }
     }
 }

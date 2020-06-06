@@ -1,8 +1,10 @@
 import React from 'react';
-import { ListItem } from '@material-ui/core';
+import { ListItem, Button } from '@material-ui/core';
 
 function Service(props) {
-    return <ListItem>{props.service.attributes.name}</ListItem>;
+    return <ListItem>
+        <Button variant="contained" onClick={() => props.selectService(props.service)}>{props.service.attributes.name}</Button>
+    </ListItem>;
 }
 
 export default Service;

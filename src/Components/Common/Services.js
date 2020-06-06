@@ -26,7 +26,8 @@ function Services(props) {
     return <>
         <div className={classes.root}>
             <List size="large" variant="text" color="primary" aria-label="text primary button group">
-                {props.service && props.service.services.map(s => <Service key={s.id} service={s}></Service>)}
+                {props.service && props.service.services.map(s =>
+                    <Service selectService={props.selectService} key={s.id} service={s}></Service>)}
             </List>
         </div>
     </>;
