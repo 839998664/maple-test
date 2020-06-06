@@ -3,7 +3,7 @@ import * as actions from '../../Redux/Actions/providerActions';
 import Provider from './Provider';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { List } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -25,9 +25,14 @@ function Providers(props) {
 
     return <>
         <div className={classes.root}>
-            <List size="large" variant="text" color="primary" aria-label="text primary button group">
+            <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="center"
+            >
                 {props.provider && props.provider.providersForSelectedService.map(p => <Provider key={p.id} provider={p}></Provider>)}
-            </List>
+            </Grid>
         </div>
     </>;
 }
